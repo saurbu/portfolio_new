@@ -6,15 +6,131 @@ html {
 
 body {
   margin: 0;
-  background: #000;
+  background: var(--bg);
+  color: var(--text);
 }
 
-.projects-slider {
-  animation: projects-horizontal 35s linear infinite;
+.theme-light {
+  --bg: #f2ecdc;
+  --text: #28301f;
+  --muted: #68705d;
+
+  --project-section-bg: #f2ecdc;
+
+  --project-text: #28301f;
+  --project-muted: #68705d;
+
+  --project-card-bg: #f2ecdc;
+  --project-details-bg: #e8dfc9;
+  --project-sidebar-bg: #e8dfc9;
+
+  --project-card-text: #28301f;
+  --project-card-muted: rgba(40, 48, 31, 0.68);
+
+  --project-sidebar-active: rgba(40, 48, 31, 0.07);
+
+  --project-border: rgba(40, 48, 31, 0.13);
+  --project-card-border: rgba(40, 48, 31, 0.18);
+  --project-card-border-active: rgba(40, 48, 31, 0.3);
+
+  --project-active-border: rgba(40, 48, 31, 0.25);
+
+  --project-button-bg: rgba(255, 255, 255, 0.28);
+  --project-button: rgba(40, 48, 31, 0.08);
+
+  --project-small-card-bg: rgba(255, 255, 255, 0.22);
+
+  --project-tech-bg: rgba(255, 255, 255, 0.22);
+  --project-tech-placeholder: rgba(255, 255, 255, 0.35);
+
+  --project-image-overlay: rgba(0, 0, 0, 0.08);
+  --project-label-bg: rgba(255, 255, 255, 0.12);
+
+  --project-dot: rgba(40, 48, 31, 0.2);
+
+  --project-hint: rgba(40, 48, 31, 0.55);
+
+  --project-ring: rgba(40, 48, 31, 0.25);
+  --project-ring-soft: rgba(40, 48, 31, 0.1);
 }
 
-.projects-slider:hover {
-  animation-play-state: paused;
+.theme-dark {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.5);
+
+  --project-section-bg: #000000;
+
+  --project-text: #ffffff;
+  --project-muted: rgba(255, 255, 255, 0.5);
+
+  --project-card-bg: #080808;
+  --project-details-bg: #0b0b0b;
+  --project-sidebar-bg: #080808;
+
+  --project-card-text: #ffffff;
+  --project-card-muted: rgba(255, 255, 255, 0.58);
+
+  --project-sidebar-active: rgba(255, 255, 255, 0.06);
+
+  --project-border: rgba(255, 255, 255, 0.1);
+  --project-card-border: rgba(255, 255, 255, 0.12);
+  --project-card-border-active: rgba(255, 255, 255, 0.2);
+
+  --project-active-border: rgba(255, 255, 255, 0.2);
+
+  --project-button-bg: rgba(255, 255, 255, 0.08);
+  --project-button: rgba(255, 255, 255, 0.08);
+
+  --project-small-card-bg: rgba(255, 255, 255, 0.04);
+
+  --project-tech-bg: rgba(255, 255, 255, 0.06);
+  --project-tech-placeholder: rgba(255, 255, 255, 0.04);
+
+  --project-image-overlay: rgba(0, 0, 0, 0.08);
+  --project-label-bg: rgba(0, 0, 0, 0.4);
+
+  --project-dot: rgba(255, 255, 255, 0.2);
+
+  --project-hint: rgba(255, 255, 255, 0.45);
+
+  --project-ring: rgba(255, 255, 255, 0.18);
+  --project-ring-soft: rgba(255, 255, 255, 0.08);
+}
+
+.theme-light,
+.theme-dark {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.project-color-card {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.theme-light .project-color-card {
+  background-color: var(--project-light-card);
+}
+
+.theme-dark .project-color-card {
+  background-color: #080808;
+}
+
+.theme-light .project-color-card h2,
+.theme-light .project-color-card h3,
+.theme-light .project-color-card h4,
+.theme-light .project-color-card p,
+.theme-light .project-color-card span {
+  --project-card-text: #28301f;
+}
+
+.theme-dark .project-color-card h2,
+.theme-dark .project-color-card h3,
+.theme-dark .project-color-card h4,
+.theme-dark .project-color-card p,
+.theme-dark .project-color-card span {
+  --project-card-text: #ffffff;
 }
 
 .scrollbar-hide {
@@ -23,6 +139,14 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.projects-slider {
+  animation: projects-horizontal 35s linear infinite;
+}
+
+.projects-slider:hover {
+  animation-play-state: paused;
 }
 
 @keyframes projects-horizontal {
