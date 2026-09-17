@@ -520,9 +520,9 @@ export default function Game({
       }`}
     >
       <div className="mx-auto max-w-7xl">
-        <div>
+        <div className="text-right">
           <p
-            className={`mb-2 text-sm uppercase tracking-[0.3em] ${
+            className={` text-xs uppercase tracking-[0.3em] ${
               isLight
                 ? "text-[#65734f]"
                 : "text-white/40"
@@ -538,11 +538,11 @@ export default function Game({
                 : "text-white"
             }`}
           >
-            Tech Game
+            Tech <span style={{ color: "var(--muted)" }}> Game</span>
           </h2>
 
           <p
-            className={`mx-auto mt-2 max-w-xl text-center text-sm leading-relaxed ${
+            className={`mx-auto mt-2 max-w-full text-sm leading-relaxed ${
               isLight
                 ? "text-[#5d6658]"
                 : "text-white/50"
@@ -678,8 +678,8 @@ export default function Game({
                           isSelected
                             ? "scale-100 opacity-15"
                             : isLight
-                              ? "hover:border-[#65734f]/50"
-                              : "hover:border-white/30"
+                              ? "hover:translate-y-1 hover:translate-x-1 hover:border-[#65734f]/50"
+                              : "hover:translate-y-1 hover:translate-x-1  hover:border-white/30"
                         }`}
                       >
                         <div
@@ -698,7 +698,7 @@ export default function Game({
                         </div>
 
                         <span
-                          className={`absolute bottom-2 left-0 right-0 truncate text-[10px] font-medium ${
+                          className={`absolute bottom-0 left-0 right-0 truncate text-[10px] font-medium ${
                             isLight
                               ? "text-[#5d6658]"
                               : "text-white/50"

@@ -160,9 +160,9 @@ export default function Skills({
       }`}
     >
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-center">
-        <div>
+        <div className="text-right">
           <p
-            className={`mb-1 text-xs uppercase tracking-[0.3em] transition-colors duration-500 ${
+            className={`mb-1 md:mt-8 mt-15 text-xs uppercase tracking-[0.3em] transition-colors duration-500 ${
               isLight
                 ? "text-[#65734f]"
                 : "text-white/40"
@@ -172,7 +172,7 @@ export default function Skills({
           </p>
 
           <h2
-            className={`text-5xl font-bold tracking-tight transition-colors duration-500 md:text-7xl ${
+            className={`text-5xl font-bold tracking-tight transition-colors duration-500 md:text-8xl  ${
               isLight
                 ? "text-[#273226]"
                 : "text-white"
@@ -182,7 +182,7 @@ export default function Skills({
           </h2>
 
           <p
-            className={`mt-1 max-w-2xl text-sm leading-relaxed transition-colors duration-500 ${
+            className={`mt-1 max-w-full text-sm leading-relaxed transition-colors duration-500 ${
               isLight
                 ? "text-[#5d6658]"
                 : "text-white/50"

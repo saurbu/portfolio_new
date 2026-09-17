@@ -10,6 +10,8 @@ import Projects, {
   type Project,
 } from "@/components/Projects";
 import Game from "@/components/Game";
+import About from "@/components/About";
+import Contact from "@/components/Contact";
 
 type Theme = "light" | "dark";
 
@@ -44,21 +46,7 @@ export default function Home() {
         }
         selectedProject={selectedProject}
       />
-
-      <section
-        id="about"
-        className="scroll-mt-24 flex min-h-screen items-center justify-center px-6"
-      >
-        <h2
-          className={`text-center text-5xl font-bold tracking-tight transition-colors duration-500 md:text-7xl ${
-            theme === "light"
-              ? "text-[#273226]"
-              : "text-white"
-          }`}
-        >
-          About Me
-        </h2>
-      </section>
+      <About theme={theme} />
 
       <Skills theme={theme} />
 
@@ -70,20 +58,7 @@ export default function Home() {
 
       <Game theme={theme} />
 
-      <section
-        id="contact"
-        className="scroll-mt-24 flex min-h-screen items-center justify-center px-6"
-      >
-        <h2
-          className={`text-center text-5xl font-bold tracking-tight transition-colors duration-500 md:text-7xl ${
-            theme === "light"
-              ? "text-[#273226]"
-              : "text-white"
-          }`}
-        >
-          Contact
-        </h2>
-      </section>
+      <Contact theme={theme} />
     </main>
   );
 }

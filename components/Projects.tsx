@@ -7,7 +7,9 @@ import {
   type CSSProperties,
   type PointerEvent,
 } from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
+
 import {
   FaGithub,
   FaExternalLinkAlt,
@@ -111,7 +113,19 @@ const projects: Project[] = [
     accent: "#C9B77D",
   },
   {
-    id: "watch",
+    id: "college1",
+    name: "College Discovery",
+    image:
+      "https://ik.imagekit.io/kaptaanjii/projectimage/projectR.png",
+    description:
+      "A frontend college discovery platform where users can search colleges, filter by categories and save colleges using localStorage.",
+    skills: ["React.js", "JavaScript", "Tailwind CSS"],
+    github: "#",
+    live: "https://college-discovery-platform-five-phi.vercel.app",
+    accent: "#7FB7A3",
+  },
+  {
+    id: "docapproval1",
     name: "Doc Approval",
     image:
       "https://ik.imagekit.io/kaptaanjii/projectimage/projectW.png",
@@ -397,7 +411,7 @@ function ProjectDetails({
               <div className="mt-3 flex flex-wrap gap-2 sm:gap-3">
                 {project.skills.map((skill) => (
                   <div
-                    key={skill}
+                    key={`${project.id}-${skill}`}
                     data-project-skill={skill}
                     className="flex h-14 items-center gap-3 rounded-xl border px-3"
                     style={{
@@ -464,7 +478,7 @@ function ProjectDetails({
           </div>
         </motion.div>
 
-        <div className="flex flex-col gap-4 lg:sticky lg:top-24">
+        <div className="flex flex-col gap-4 lg:sticky lg:top-22">
           <button
             type="button"
             onClick={onBack}
@@ -480,7 +494,7 @@ function ProjectDetails({
           </button>
 
           <aside
-            className="h-fit rounded-[26px] border p-4 sm:rounded-[30px] sm:p-5"
+            className="rounded-[26px] border p-4 sm:rounded-[30px] sm:p-5"
             style={{
               backgroundColor: "var(--project-sidebar-bg)",
               borderColor: "var(--project-border)",
@@ -504,7 +518,7 @@ function ProjectDetails({
               Other Projects
             </h3>
 
-            <div className="mt-2 space-y-2.5 sm:mt-2 sm:space-y-3">
+            <div className="projects-scroll mt-3 max-h-[490px] space-y-3 overflow-y-auto pr-2 scrollbar-none">
               {projects
                 .filter((item) => item.id !== project.id)
                 .map((item) => (
@@ -512,7 +526,7 @@ function ProjectDetails({
                     key={item.id}
                     type="button"
                     onClick={() => onSelectProject(item)}
-                    className="group flex w-full gap-3 rounded-xl border p-2.5 text-left transition hover:scale-[1.01] sm:rounded-2xl sm:p-3"
+                    className="group flex min-h-[68px] w-full gap-3 rounded-xl border p-2.5 text-left transition hover:scale-[1.01] sm:rounded-2xl sm:p-3"
                     style={{
                       backgroundColor:
                         "var(--project-small-card-bg)",
@@ -532,7 +546,7 @@ function ProjectDetails({
                       />
                     </div>
 
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
                         <span
                           className="h-1.5 w-1.5 shrink-0 rounded-full"
@@ -681,7 +695,7 @@ export default function Projects({
         id="projects"
         className={`mx-auto max-w-7xl ${
           selectedProject
-            ? "my-6"
+            ? "md:my-4"
             : "py-16 sm:py-20 lg:my-22"
         }`}
       >
@@ -701,7 +715,7 @@ export default function Projects({
               exit={{ opacity: 0 }}
             >
               <p
-                className="mt-8 text-xs uppercase tracking-[0.3em] md:mt-2 sm:text-sm"
+                className="mt-8 text-xs uppercase tracking-[0.3em] md:mt-3"
                 style={{
                   color: "var(--project-muted)",
                 }}
@@ -719,7 +733,7 @@ export default function Projects({
               </h2>
 
               <p
-                className="mt-3 max-w-2xl text-sm leading-relaxed sm:mt-4 sm:text-lg"
+                className="mt-3 max-w-2xl text-sm leading-relaxed sm:mt-4"
                 style={{
                   color: "var(--project-muted)",
                 }}
@@ -767,7 +781,7 @@ export default function Projects({
               <div className="mt-4 flex justify-center gap-2">
                 {projects.map((project, index) => (
                   <button
-                    key={project.id}
+                    key={`dot-${project.id}`}
                     type="button"
                     aria-label={`Go to ${project.name}`}
                     onClick={() =>
