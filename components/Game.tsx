@@ -16,7 +16,7 @@ import {
   SiPython,
   SiGit,
 } from "react-icons/si";
-
+import { TbBrandVscode } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 
 import {
@@ -59,11 +59,11 @@ const skills: Skill[] = [
     icon: SiReact,
     color: "#61DAFB",
   },
-  {
-    name: "React",
-    icon: SiReact,
-    color: "#61DAFB",
-  },
+  // {
+  //   name: "React",
+  //   icon: SiReact,
+  //   color: "#61DAFB",
+  // },
   {
     name: "JavaScript",
     icon: SiJavascript,
@@ -84,11 +84,11 @@ const skills: Skill[] = [
     icon: SiTailwindcss,
     color: "#06B6D4",
   },
-  {
-    name: "Tailwind",
-    icon: SiTailwindcss,
-    color: "#06B6D4",
-  },
+  // {
+  //   name: "Tailwind",
+  //   icon: SiTailwindcss,
+  //   color: "#06B6D4",
+  // },
   {
     name: "Node.js",
     icon: SiNodedotjs,
@@ -141,7 +141,7 @@ const skills: Skill[] = [
   },
   {
     name: "VS Code",
-    icon: Code2,
+    icon: TbBrandVscode,
     color: "#007ACC",
   },
   {
@@ -195,7 +195,6 @@ const questionBank: Question[] = [
     correct: [
       "CSS",
       "Tailwind CSS",
-      "Tailwind",
     ],
   },
   {
@@ -285,7 +284,7 @@ function shuffle<T>(array: T[]): T[] {
 function createGame(): GameQuestion[] {
   return shuffle(questionBank).map((question) => ({
     ...question,
-    options: shuffle(allSkills),
+    options: (allSkills),
   }));
 }
 
@@ -341,7 +340,7 @@ export default function Game({
         className={`relative min-h-screen scroll-mt-24 px-6 py-16 transition-colors duration-500 ${
           isLight
             ? "bg-[#eee9dc] text-[#273226]"
-            : "bg-black text-white"
+            : "bg-[#10140f] text-white"
         }`}
       >
         <div className="flex min-h-[70vh] items-center justify-center">
@@ -439,7 +438,7 @@ export default function Game({
         className={`relative min-h-screen scroll-mt-24 px-6 py-12 transition-colors duration-500 ${
           isLight
             ? "bg-[#eee9dc] text-[#273226]"
-            : "bg-black text-white"
+            : "bg-[#10140f] text-white"
         }`}
       >
         <div className="mx-auto flex min-h-[75vh] max-w-6xl items-center justify-center">
@@ -447,7 +446,7 @@ export default function Game({
             className={`w-full max-w-md rounded-3xl border p-8 text-center shadow-sm transition-colors duration-500 ${
               isLight
                 ? "border-[#273226]/10 bg-[#f5f0e4]/70"
-                : "border-white/10 bg-black"
+                : "border-white/10 bg-[#10140f]"
             }`}
           >
             <p
@@ -517,7 +516,7 @@ export default function Game({
       className={`relative min-h-screen overflow-hidden scroll-mt-24 px-6 py-12 transition-colors duration-500 ${
         isLight
           ? "bg-[#eee9dc] text-[#273226]"
-          : "bg-black text-white"
+          : "bg-[#10140f] text-white"
       }`}
     >
       <div className="mx-auto max-w-7xl">
@@ -677,10 +676,10 @@ export default function Game({
                             : "border-white/10 bg-black"
                         } ${getSkillStyle(index)} ${
                           isSelected
-                            ? "scale-95 opacity-15"
+                            ? "scale-100 opacity-15"
                             : isLight
-                              ? "hover:-translate-y-1 hover:border-[#65734f]/50"
-                              : "hover:-translate-y-1 hover:border-white/30"
+                              ? "hover:border-[#65734f]/50"
+                              : "hover:border-white/30"
                         }`}
                       >
                         <div
@@ -690,12 +689,12 @@ export default function Game({
                               : "border-white/10 bg-black"
                           }`}
                         >
-                          <Icon
-                            className="text-2xl transition-transform duration-300 group-hover:scale-110"
+                          {/* <Icon
+                            className="text-2xl transition-transform duration-300 group-hover:scale-100"
                             style={{
                               color: skillData.color,
                             }}
-                          />
+                          /> */}
                         </div>
 
                         <span

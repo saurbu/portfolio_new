@@ -15,7 +15,7 @@ type Theme = "light" | "dark";
 
 export default function Home() {
   const [theme, setTheme] =
-    useState<Theme>("light");
+    useState<Theme>("dark");
 
   const [hoveredProject, setHoveredProject] =
     useState<Project | null>(null);

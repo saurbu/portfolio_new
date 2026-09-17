@@ -14,7 +14,7 @@ type SkillsProps = {
 };
 
 const frontendSkills: string[] = [
-  "React",
+  "React.js",
   "JavaScript",
   "HTML",
   "CSS",
@@ -100,7 +100,7 @@ function SkillCard({
       className={`skill-category rounded-2xl border p-4 backdrop-blur-md transition-all duration-500 ${
         isLight
           ? "border-[#273226]/10 bg-[#f5f0e4]/70 shadow-sm"
-          : "border-white/10 bg-white/[0.02]"
+          : "border-white/10 bg-[#10140f]"
       }`}
       data-category={category}
     >
@@ -119,7 +119,7 @@ function SkillCard({
             className={`skill-slot flex h-14 items-center gap-2 rounded-xl border border-dashed px-2.5 transition-all duration-500 ${
               isLight
                 ? "border-[#273226]/15 bg-[#eee9dc]/70 hover:border-[#65734f]/40 hover:bg-[#e5e0d2]"
-                : "border-white/10 bg-black hover:border-white/20"
+                : "border-white/10 bg-[#10140f] hover:border-white/20"
             }`}
             data-skill={skill}
           >
@@ -127,7 +127,7 @@ function SkillCard({
               className={`skill-logo-placeholder flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-all duration-500 ${
                 isLight
                   ? "border-[#273226]/10 bg-[#f5f0e4]"
-                  : "border-white/10 bg-black"
+                  : "border-white/10 bg-[#10140f]"
               }`}
             />
 
@@ -156,7 +156,7 @@ export default function Skills({
     <section
       id="skills"
       className={`relative min-h-screen overflow-hidden px-6 py-8 transition-colors duration-500 ${
-        isLight ? "bg-[#eee9dc]" : "bg-black"
+        isLight ? "bg-[#eee9dc]" : "bg-[#10140f]"
       }`}
     >
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col justify-center">

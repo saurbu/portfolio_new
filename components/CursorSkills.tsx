@@ -25,7 +25,7 @@ import {
   SiPython,
   SiGit,
 } from "react-icons/si";
-
+import { TbBrandVscode } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 
 import {
@@ -71,11 +71,11 @@ const skills: Skill[] = [
     icon: SiReact,
     color: "#61DAFB",
   },
-  {
-    name: "React",
-    icon: SiReact,
-    color: "#61DAFB",
-  },
+  // {
+  //   name: "React",
+  //   icon: SiReact,
+  //   color: "#61DAFB",
+  // },
   {
     name: "JavaScript",
     icon: SiJavascript,
@@ -153,7 +153,7 @@ const skills: Skill[] = [
   },
   {
     name: "VS Code",
-    icon: Code2,
+    icon: TbBrandVscode,
     color: "#007ACC",
   },
   {
@@ -174,25 +174,25 @@ const skills: Skill[] = [
 ];
 
 const trailPositions: Position[] = [
-  { x: 12, y: 22 },
-  { x: 5, y: 58 },
-  { x: 55, y: 48 },
-  { x: 28, y: 84 },
-  { x: 68, y: 74 },
-  { x: 108, y: 94 },
-  { x: 22, y: 130 },
-  { x: 52, y: 110 },
-  { x: 92, y: 130 },
-  { x: 122, y: 120 },
-  { x: 46, y: 150 },
-  { x: 72, y: 176 },
-  { x: 102, y: 166 },
-  { x: 135, y: 155 },
-  { x: 150, y: 110 },
-  { x: 145, y: 65 },
-  { x: 120, y: 45 },
-  { x: 80, y: 30 },
-  { x: 170, y: 140 },
+  { x: 12, y: 22 }, //react
+  { x: 5, y: 58}, // react1
+  { x: 35, y: 48 }, // js
+  { x: 28, y: 84 }, // html
+  { x: 58, y: 74 }, // css
+  { x: 80, y: 94 }, //tcss
+  { x: 15, y: 110 }, //tcss1
+  { x: 52, y: 110 }, //njs
+  { x: 72, y: 130 }, //ex
+  { x: 102, y: 120 }, //net
+  { x: 46, y: 150 }, //mdb
+  { x: 72, y: 176 }, //sql
+  { x: 102, y: 166 }, //</>
+  { x: 135, y: 155 }, //php
+  { x: 130, y: 110 }, //py
+  { x: 85, y: 65 }, //""
+  { x: 60, y: 45 }, //git
+  { x: 100, y: 90 }, //</>
+  { x: 150, y: 140 },
 ];
 
 export default function CursorSkills({
@@ -639,12 +639,12 @@ export default function CursorSkills({
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/80 backdrop-blur-md"
-                style={{
-                  boxShadow: highlighted
-                    ? `0 0 26px ${skill.color}90`
-                    : `0 0 16px ${skill.color}45`,
-                }}
+                className="bg-none"
+                // style={{
+                //   boxShadow: highlighted
+                //     ? `0 0 26px ${skill.color}90`
+                //     : `0 0 16px ${skill.color}45`,
+                // }}
               >
                 <Icon
                   className="text-lg"

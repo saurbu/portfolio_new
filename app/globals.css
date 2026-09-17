@@ -55,11 +55,11 @@ body {
 }
 
 .theme-dark {
-  --bg: #000000;
+  --bg: #10140f;
   --text: #ffffff;
   --muted: rgba(255, 255, 255, 0.5);
 
-  --project-section-bg: #000000;
+  --project-section-bg: #10140f;
 
   --project-text: #ffffff;
   --project-muted: rgba(255, 255, 255, 0.5);

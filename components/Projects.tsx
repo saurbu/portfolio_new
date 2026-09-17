@@ -258,7 +258,7 @@ function ProjectCard({
         className="project-color-card group overflow-hidden rounded-[28px] border transition-all duration-500"
         style={cardStyle}
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-black">
+        <div className="relative aspect-[16/10] overflow-hidden bg-[#10140f]">
           <img
             src={project.image}
             alt={project.name}
@@ -339,7 +339,7 @@ function ProjectDetails({
             borderColor: "var(--project-border)",
           } as ProjectCardStyle}
         >
-          <div className="relative h-[190px] overflow-hidden rounded-[20px] border bg-black sm:h-[220px] md:h-[250px] lg:h-[250px] xl:h-[270px]">
+          <div className="relative h-[190px] overflow-hidden rounded-[20px] border bg-[#10140f] sm:h-[220px] md:h-[250px] lg:h-[250px] xl:h-[270px]">
             <img
               src={project.image}
               alt={project.name}
