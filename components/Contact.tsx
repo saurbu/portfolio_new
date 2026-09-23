@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -20,7 +20,40 @@ export default function Contact({
   theme = "dark",
 }: ContactProps) {
   const isLight = theme === "light";
+  const [result, setResult] = useState("");
 
+  const onSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setResult("Sending....");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append(
+      "access_key",
+      "a64b77af-fb0f-4359-a975-9404cea2ddef"
+    );
+
+    const response = await fetch(
+      "https://api.web3forms.com/submit",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      form.reset();
+    } else {
+      setResult("Error");
+    }
+  };
   return (
     <section
       id="contact"
@@ -239,9 +272,7 @@ export default function Contact({
             transition={{ duration: 0.7 }}
           >
             <form
-              action="mailto:your-email@example.com"
-              method="post"
-              encType="text/plain"
+              onSubmit={onSubmit}
               className={`rounded-2xl border p-4 md:p-6 ${
                 isLight
                   ? "border-[#28301f]/15 bg-white/20"
@@ -275,7 +306,7 @@ export default function Contact({
                     name="name"
                     required
                     placeholder="Your name"
-                    className={` w-full border-b bg-transparent px-0 pb-3 text-sm outline-none transition-colors ${
+                    className={`w-full border-b bg-transparent px-0 pb-3 text-sm outline-none transition-colors ${
                       isLight
                         ? "border-[#28301f]/15 text-[#28301f] placeholder:text-[#68705d]/60 focus:border-[#65734f]"
                         : "border-white/10 text-white placeholder:text-white/25 focus:border-white/40"
@@ -299,7 +330,7 @@ export default function Contact({
                     name="email"
                     required
                     placeholder="your@email.com"
-                    className={` w-full border-b bg-transparent px-0 pb-3 text-sm outline-none transition-colors ${
+                    className={`w-full border-b bg-transparent px-0 pb-3 text-sm outline-none transition-colors ${
                       isLight
                         ? "border-[#28301f]/15 text-[#28301f] placeholder:text-[#68705d]/60 focus:border-[#65734f]"
                         : "border-white/10 text-white placeholder:text-white/25 focus:border-white/40"
@@ -323,7 +354,7 @@ export default function Contact({
                     required
                     rows={2}
                     placeholder="Tell me about your idea..."
-                    className={` w-full resize-none border-b bg-transparent  pb-3 text-sm outline-none transition-colors ${
+                    className={`w-full resize-none border-b bg-transparent pb-3 text-sm outline-none transition-colors ${
                       isLight
                         ? "border-[#28301f]/15 text-[#28301f] placeholder:text-[#68705d]/60 focus:border-[#65734f]"
                         : "border-white/10 text-white placeholder:text-white/25 focus:border-white/40"
@@ -334,15 +365,30 @@ export default function Contact({
 
               <button
                 type="submit"
+                disabled={result === "Sending...."}
                 className={`mt-10 inline-flex items-center gap-3 rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 hover:-translate-y-1 ${
                   isLight
                     ? "border-[#28301f]/20 text-[#28301f] hover:bg-[#28301f]/5"
                     : "border-white/15 text-white hover:bg-white/5"
                 }`}
               >
-                Send Message
+                {result === "Sending...." ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
+
+              {result && result !== "Sending...." && (
+                <p
+                  className={`mt-4 text-xs ${
+                    result === "Form Submitted Successfully"
+                      ? isLight
+                        ? "text-[#65734f]"
+                        : "text-white/60"
+                      : "text-red-500"
+                  }`}
+                >
+                  {result}
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
